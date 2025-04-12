@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #000;
+    font-family: 'Orbitron', sans-serif;
+    overflow: hidden;
+    color: white;
+  }
+  
+  #game {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    overflow: hidden;
+  }
+  
+  .glow-bg {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: -25%;
+    left: -25%;
+    background: radial-gradient(circle at center, rgba(0,255,255,0.1), transparent 60%);
+    animation: rotateGlow 20s linear infinite;
+    z-index: 0;
+  }
+  
+  @keyframes rotateGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .player {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #00f7ff, #00ffd5);
+    box-shadow: 0 0 15px #00f7ff, 0 0 40px #00ffd5, inset 0 0 10px #00f7ff;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: pulse 1s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.1); }
+  }
+  
+  .glitch {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, #ff007c, #ff5200);
+    box-shadow: 0 0 15px #ff007c, 0 0 30px #ff5200;
+    position: absolute;
+    top: -40px;
+    border-radius: 8px;
+    z-index: 1;
+    animation: flicker 0.3s infinite;
+  }
+  
+  @keyframes flicker {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+  }
+  
+  #score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 28px;
+    color: #00ffe7;
+    text-shadow: 0 0 8px #00ffe7;
+    z-index: 3;
+  }
+  
+  #game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: #ff0055;
+    text-shadow: 0 0 20px #ff0055, 0 0 40px #ff0055;
+    display: none;
+    z-index: 3;
+    animation: glitchText 1s infinite;
+  }
+  
+  @keyframes glitchText {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-48%, -52%) scale(1.05); }
+  }
+  
